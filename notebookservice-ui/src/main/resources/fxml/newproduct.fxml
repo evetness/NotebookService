@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" vgap="5.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notebookservice.ui.controller.NewProductController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="350.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <GridPane prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #d21414;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="270.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <GridPane.margin>
+            <Insets left="-10.0" />
+        </GridPane.margin>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="New Product" GridPane.columnIndex="1">
+           <font>
+               <Font size="20.0" />
+           </font>
+        </Text>
+      <JFXButton fx:id="refreshButton" onAction="#refreshButton" ripplerFill="WHITE" style="-fx-background-color: #dc1414;" text="Refresh" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+    </GridPane>
+   <JFXComboBox fx:id="brandField" focusColor="#d21414" maxWidth="200.0" prefWidth="200.0" promptText="Brand" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+   <JFXTextField fx:id="productTypeField" focusColor="#d21414" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Product Type" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXTextField>
+   <JFXTextArea fx:id="descriptionArea" focusColor="#d21414" promptText="Description" style="-fx-border-color: #bcbcbc;" unFocusColor="#bcbcbc" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <GridPane.margin>
+         <Insets right="10.0" />
+      </GridPane.margin>
+      <padding>
+         <Insets bottom="4.0" />
+      </padding>
+   </JFXTextArea>
+    <GridPane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #d21414;" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="340.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <GridPane.margin>
+            <Insets left="-10.0" />
+        </GridPane.margin>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Client info:" GridPane.columnIndex="1">
+           <font>
+               <Font size="16.0" />
+           </font>
+        </Text>
+    </GridPane>
+   <JFXTextField fx:id="firstNameField" focusColor="#d21414" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="200.0" promptText="First name" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXTextField>
+   <JFXTextField fx:id="lastNameField" focusColor="#d21414" layoutX="20.0" layoutY="362.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Last name" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXTextField>
+   <JFXTextField fx:id="emailField" focusColor="#d21414" layoutX="20.0" layoutY="423.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXTextField>
+   <JFXTextField fx:id="phoneField" focusColor="#d21414" layoutX="20.0" layoutY="423.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Phone number" unFocusColor="#bcbcbc" GridPane.halignment="LEFT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXTextField>
+    <GridPane prefHeight="50.0" prefWidth="350.0" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <GridPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+        </GridPane.margin>
+        <JFXButton fx:id="saveButton" onAction="#saveButton" ripplerFill="WHITE" style="-fx-background-color: #d21414;" text="Done" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+           <font>
+               <Font size="17.0" />
+           </font>
+        </JFXButton>
+        <JFXButton fx:id="closeButton" layoutX="30.0" layoutY="20.0" onAction="#closeButton" ripplerFill="WHITE" style="-fx-background-color: #d21414;" text="Close" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+           <font>
+               <Font size="17.0" />
+           </font>
+        </JFXButton>
+    </GridPane>
+   <JFXButton fx:id="addBrandButton" onAction="#addBrandButton" prefHeight="30.0" ripplerFill="WHITE" style="-fx-background-color: #d21414;" text="Add Brand" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <GridPane.margin>
+         <Insets right="20.0" />
+      </GridPane.margin>
+      <font>
+         <Font size="14.0" />
+      </font>
+   </JFXButton>
+   <Label fx:id="messageField" contentDisplay="CENTER" prefHeight="60.0" prefWidth="350.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+</GridPane>
