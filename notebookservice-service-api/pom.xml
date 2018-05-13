@@ -11,4 +11,11 @@
 
     <artifactId>notebookservice-service-api</artifactId>
 
+    <name>NotebookService service api</name>
+
+    <description>
+        This module contains those interfaces, which describes how the services
+        works, with this we elevate it to a higher abstract layer.
+    </description>
+
 </project>

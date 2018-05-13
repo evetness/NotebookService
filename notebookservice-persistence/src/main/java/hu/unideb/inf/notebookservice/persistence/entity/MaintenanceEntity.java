@@ -1,5 +1,26 @@
 package hu.unideb.inf.notebookservice.persistence.entity;
 
+/*-
+ * #%L
+ * Notebook Service persistence
+ * $Id:$
+ * $HeadURL:$
+ * %%
+ * Copyright (C) 2018 University of Debrecen IT Faculty
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,10 +29,14 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Maintenance entity that represents the service.
@@ -79,9 +104,10 @@ public class MaintenanceEntity extends BaseEntity<Long> {
 
     /**
      * Product to be repaired.
-     * The {@link javax.persistence.OneToOne} defines a single-valued
-     * association to another entity that has one-to-one multiplicity.
+     * The {@link javax.persistence.ManyToOne} we define a
+     * single-valued association to another entity class that
+     * has many-to-one multiplicity.
      */
-    @OneToOne
+    @ManyToOne
     private ProductEntity product;
 }

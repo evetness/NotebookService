@@ -1,7 +1,28 @@
 package hu.unideb.inf.notebookservice.service.impl;
 
+/*-
+ * #%L
+ * NotebookService Implementation
+ * $Id:$
+ * $HeadURL:$
+ * %%
+ * Copyright (C) 2018 University of Debrecen IT Faculty
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import hu.unideb.inf.notebookservice.persistence.entity.EmployeeEntity;
-import hu.unideb.inf.notebookservice.persistence.repository.BrandRepository;
 import hu.unideb.inf.notebookservice.persistence.repository.EmployeeRepository;
 import hu.unideb.inf.notebookservice.service.domain.Employee;
 import hu.unideb.inf.notebookservice.service.interfaces.EmployeeService;
@@ -41,28 +62,34 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return the stored employee with its ID.
      */
     @Override
-    public Employee addEmployee(Employee employee) {
+    public final Employee addEmployee(final Employee employee) {
 
-        return EmployeeMapper.EmployeeEntityToEmployee(
+        log.info(">> add: [employee:{}]", employee);
+        return EmployeeMapper.employeeEntityToEmployee(
                 employeeRepository.save(
-                        EmployeeMapper.EmployeeToEmployeeEntity(employee)));
+                        EmployeeMapper.employeeToEmployeeEntity(employee)));
     }
 
     /**
      * In this implementation, with the help of
-     * {@link BrandRepository#findByName(String)} method,
+     * {@link EmployeeRepository#findByUsername(String)} method,
      * the employee is queried from the database.
      * @param username of the employee.
      * @return the desired employee by its username from the database.
      */
     @Override
-    public Employee findByUsername(String username) {
+    public final Employee findByUsername(final String username) {
 
-        EmployeeEntity foundEmployee = employeeRepository.findByUsername(username);
+        log.info(">> findByUsername: [username:{}]", username);
+        EmployeeEntity foundEmployee =
+                employeeRepository.findByUsername(username);
 
-        if(foundEmployee == null)
+        if (foundEmployee == null) {
+            log.info("<< findByUsername: [username:{}]", username, null);
             return null;
-        else
-            return EmployeeMapper.EmployeeEntityToEmployee(foundEmployee);
+        } else {
+            log.info("<< findByUsername: [username:{}]", username);
+            return EmployeeMapper.employeeEntityToEmployee(foundEmployee);
+        }
     }
 }

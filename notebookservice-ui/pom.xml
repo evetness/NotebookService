@@ -7,9 +7,18 @@
         <groupId>hu.unideb.inf</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>notebookservice-ui</artifactId>
+
+    <name>NotebookService user interface</name>
+
+    <description>
+        This module is responsible for the user interface
+        for its proper functioning.
+    </description>
 
     <dependencies>
         <dependency>
@@ -43,5 +52,30 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.10.RELEASE</version>
+                <configuration>
+                    <mainClass>hu.unideb.inf.notebookservice.ui.main.Main</mainClass>
+                    <layout>MODULE</layout>
+                </configuration>
+                <executions>
+
+                    <execution>
+                        <goals>
+                            <goal>
+                                repackage
+                            </goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

@@ -22,25 +22,25 @@ package hu.unideb.inf.notebookservice.service.validate;
  * #L%
  */
 
-import hu.unideb.inf.notebookservice.service.domain.Brand;
-import hu.unideb.inf.notebookservice.service.interfaces.BrandService;
-import hu.unideb.inf.notebookservice.service.pojo.BrandValidatorPojo;
+import hu.unideb.inf.notebookservice.service.domain.Maintenance;
+import hu.unideb.inf.notebookservice.service.interfaces.MaintenanceService;
+import hu.unideb.inf.notebookservice.service.pojo.MaintenanceValidatorPojo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * This class help to validate the given {@link Brand}.
+ * This class help to validate the given {@link Maintenance}.
  * The {@link org.springframework.stereotype.Component} indicates that
  * an annotated class is a "component".
  * {@link lombok.extern.slf4j.Slf4j} is needed for logging.
  */
 @Slf4j
 @Component
-public class BrandValidator {
+public class MaintenanceValidator {
 
     /**
-     * The BrandService derives from {@link BrandService}.
+     * The BrandService derives from {@link MaintenanceService}.
      * This data member is wired with the help of
      * {@link org.springframework.beans.factory.annotation.Autowired}
      * annotation, by Spring.
@@ -48,24 +48,21 @@ public class BrandValidator {
      * by via this data member.
      */
     @Autowired
-    private BrandService brandService;
+    private MaintenanceService maintenanceService;
 
-    /**
-     * This method is check if validation is ok.
-     * @param brand is the {@link Brand} to be validated.
-     * @return a {@link BrandValidatorPojo} which contains the answer.
-     */
-    public final BrandValidatorPojo regValidator(final Brand brand) {
-        log.info(">> validate: [brand:{}]", brand);
-        if (brand.getName().isEmpty()) {
-            log.info("<< not valid: [brand:{}]", brand);
-            return new BrandValidatorPojo(false, "Incorrect Brand name!");
-        } else if (brandService.findByName(brand.getName()) == null) {
-            log.info("<< valid: [brand:{}]", brand);
-            return new BrandValidatorPojo(true, "Done!");
-        } else {
-            log.info("not valid: [brand:{}]", brand);
-            return new BrandValidatorPojo(false, "Brand already exists!");
-        }
-    }
+//    /**
+//     * This method is check if validation is ok.
+//     * @param maintenance is the {@link Maintenance} to be validated.
+//     * @return a {@link MaintenanceValidatorPojo} which contains the answer.
+//     */
+//    public final MaintenanceValidatorPojo regValidator(final Maintenance maintenance) {
+//        log.info(">> validate: [maintenance:{}]", maintenance);
+//        if (maintenance.getPrice()) {
+//            log.info("<< not valid: [brand:{}]", brand);
+//            return new MaintenanceValidatorPojo(false, "Incorrect Brand name!");
+//        } else {
+//            log.info("not valid: [brand:{}]", brand);
+//            return new MaintenanceValidatorPojo(false, "Brand already exists!");
+//        }
+//    }
 }

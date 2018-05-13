@@ -1,4 +1,4 @@
-package hu.unideb.inf.notebookservice.service.domain;
+package hu.unideb.inf.notebookservice.service.pojo;
 
 /*-
  * #%L
@@ -23,40 +23,27 @@ package hu.unideb.inf.notebookservice.service.domain;
  */
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
 /**
- * Domain class of the brand for transfer data through layers.
+ * Simple class for maintenance validator which helps to validate maintenance domain.
  * The {@link lombok.Data}, {@link lombok.NoArgsConstructor} and
  * {@link lombok.AllArgsConstructor} annotations helps to
  * generate the required fields.
- * The {@link lombok.Builder} annotation creates a so-called 'builder'
- * aspect to the class.
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Brand implements Serializable {
+public class MaintenanceValidatorPojo {
 
     /**
-     * Id of the brand.
+     * Boolean for check if the maintenance registered in the database.
      */
-    private Long id;
+    private boolean registered;
 
     /**
-     * Name of the brand.
+     * Message for validation.
      */
-    private String name;
-
-    /**
-     * List of products of the brand.
-     */
-    private List<Product> products;
-
+    private String message;
 }

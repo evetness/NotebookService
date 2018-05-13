@@ -1,5 +1,27 @@
 package hu.unideb.inf.notebookservice.service.test;
 
+/*-
+ * #%L
+ * NotebookService Implementation
+ * $Id:$
+ * $HeadURL:$
+ * %%
+ * Copyright (C) 2018 University of Debrecen IT Faculty
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import hu.unideb.inf.notebookservice.persistence.entity.BrandEntity;
 import hu.unideb.inf.notebookservice.persistence.entity.ClientEntity;
 import hu.unideb.inf.notebookservice.persistence.entity.MaintenanceEntity;
@@ -24,6 +46,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +72,7 @@ public class ProductServiceTest {
         testProductA.setId(1L);
         testProductA.setBrand(new BrandEntity());
         testProductA.setType("ProductTypeA");
-        testProductA.setMaintenance(new MaintenanceEntity());
+        testProductA.setMaintenance(new ArrayList<>());
         testProductA.setDescrition("ProductDescriptionA");
         testProductA.setClient(new ClientEntity());
 
@@ -59,7 +82,7 @@ public class ProductServiceTest {
         testProductB.setId(2L);
         testProductB.setBrand(new BrandEntity());
         testProductB.setType("ProductTypeB");
-        testProductB.setMaintenance(new MaintenanceEntity());
+        testProductB.setMaintenance(new ArrayList<>());
         testProductB.setDescrition("ProductDescriptionB");
         testProductB.setClient(new ClientEntity());
 
@@ -97,7 +120,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void addBrandTest() {
+    public void addProductTest() {
         Assert.assertNotNull(productRepository);
 
         Product newProduct = new Product();
@@ -113,7 +136,7 @@ public class ProductServiceTest {
         Assert.assertNotNull(saveProduct.getId());
         Assert.assertNull(saveProduct.getBrand());
         Assert.assertNull(saveProduct.getClient());
-        Assert.assertNotNull(saveProduct.getMaintenance());
+        Assert.assertNull(saveProduct.getMaintenance());
         Assert.assertNotNull(saveProduct.getType());
         Assert.assertNotNull(saveProduct.getDescrition());
     }
@@ -130,7 +153,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void listBrandTest() {
+    public void listProductTest() {
         Assert.assertNotNull(productRepository);
         List<ProductEntity> productList = productRepository.findAll();
 
