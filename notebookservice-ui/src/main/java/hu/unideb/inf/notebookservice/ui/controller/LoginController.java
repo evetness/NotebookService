@@ -100,9 +100,9 @@ public class LoginController {
 
         if(regValidEmployee.isRegistered()) {
             loginEmployee = employeeService.addEmployee(employee);
-            errorField.setText(regValidEmployee.getMessage().toString());
+            errorField.setText(regValidEmployee.toString());
         } else {
-            errorField.setText(regValidEmployee.getMessage().toString());
+            errorField.setText(regValidEmployee.toString());
         }
     }
 

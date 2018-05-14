@@ -78,9 +78,6 @@ public class ProductController {
     @Autowired
     private NewProductController newProductController;
 
-    @Autowired
-    private MaintenanceController maintenanceController;
-
     public void initialize() {
 
         loggedInEmployee = loginController.getLoginEmployee();
@@ -90,6 +87,10 @@ public class ProductController {
     }
 
     private void refresh() {
+        loggedInEmployee = loginController.getLoginEmployee();
+        employeeName.setText(loggedInEmployee.getUsername());
+        currentDate.setText(String.valueOf(LocalDate.now()));
+
         configureProductTable();
         for (Maintenance maintenance : maintenanceService.findByEmployee(loggedInEmployee))
             productTable.getItems().add(maintenance);
@@ -119,7 +120,7 @@ public class ProductController {
             endDateField.setText(foundMaintenance.getEndDate().toString());
             faultsField.setText(foundMaintenance.getFaults());
             modificationField.setText(foundMaintenance.getModification());
-            priceField.setText(String.valueOf(foundMaintenance.getPrice()));
+            priceField.setText(String.valueOf(foundMaintenance.getPrice()) + " Ft");
         }
     }
 

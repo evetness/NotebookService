@@ -29,13 +29,9 @@ import de.felixroske.jfxsupport.FXMLController;
 import hu.unideb.inf.notebookservice.service.domain.Maintenance;
 import hu.unideb.inf.notebookservice.service.interfaces.MaintenanceService;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.regex.Pattern;
 
 @FXMLController
 public class MaintenanceController {
@@ -75,8 +71,8 @@ public class MaintenanceController {
                 .id(selected.getId())
                 .employee(selected.getEmployee())
                 .product(selected.getProduct())
-                .startDate(selected.getStartDate())
-                .endDate(selected.getEndDate())
+                .startDate(startDatePicker.getValue())
+                .endDate(endDatePicker.getValue())
                 .faults(faultsField.getText())
                 .modification(modificationField.getText())
                 .price(Integer.parseInt(priceField.getText()))
@@ -88,8 +84,6 @@ public class MaintenanceController {
 
         Stage close = (Stage) closeButton.getScene().getWindow();
         close.close();
-        initialize();
-//        productController.initialize();
     }
 
     public void refreshButton(ActionEvent actionEvent) {
