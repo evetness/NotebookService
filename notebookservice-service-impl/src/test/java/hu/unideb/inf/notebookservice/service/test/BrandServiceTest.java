@@ -23,9 +23,6 @@ package hu.unideb.inf.notebookservice.service.test;
  */
 
 import hu.unideb.inf.notebookservice.persistence.entity.BrandEntity;
-import hu.unideb.inf.notebookservice.persistence.entity.ClientEntity;
-import hu.unideb.inf.notebookservice.persistence.entity.MaintenanceEntity;
-import hu.unideb.inf.notebookservice.persistence.entity.ProductEntity;
 import hu.unideb.inf.notebookservice.persistence.repository.BrandRepository;
 import hu.unideb.inf.notebookservice.service.domain.Brand;
 import hu.unideb.inf.notebookservice.service.domain.Product;
@@ -134,6 +131,7 @@ public class BrandServiceTest {
         BrandEntity testBrand = brandRepository.findByName("BrandA");
 
         Assert.assertNotNull(testBrand);
+        Assert.assertNotNull(testBrand.getName());
         Assert.assertEquals("BrandA",brandA.getName());
         Assert.assertNotEquals("BrandB", brandA.getName());
 
@@ -146,7 +144,10 @@ public class BrandServiceTest {
 
         Assert.assertNotNull(brandList);
         Assert.assertEquals(2,brandList.size());
+        Assert.assertNotNull(brandList.get(0));
+        Assert.assertNotNull(brandList.get(1));
+        Assert.assertEquals(brandA,brandList.get(0));
+        Assert.assertEquals(brandB,brandList.get(1));
 
     }
-
 }
